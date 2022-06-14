@@ -1,13 +1,31 @@
 <template>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-3 center">
-        <button class="btn mx-5" v-on:click="extr">Extranjero</button>
-        <button class="btn mx-5" v-on:click="com">Comunidad UNAM</button>
-        <button class="btn mx-5" v-on:click="stu">Estudiante Externo</button>
-        <button class="btn mx-5" >Público en General</button>
+    <div>
+        <header class="header">
+            <nav class="header__nav-tall">
+                <button class="header__nav--btn" v-on:click="extr">Extranjero</button>
+                <button class="header__nav--btn" v-on:click="com">Comunidad UNAM</button>
+                <button class="header__nav--btn" v-on:click="stu">Comunidad Externa</button>
+                <button class="header__nav--btn" >Público en General</button>
+                
+            </nav>
+            <nav class="header__nav-small">
+                <span class="header__nav--icon"></span>
+                <div class="header__nav--div">
+                    <button v-on:click="extr">Extranjero</button>
+                    <button v-on:click="com">Comunidad UNAM</button>
+                    <button v-on:click="stu">Comunidad Externa</button>
+                    <button>Público en General</button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <foreign v-if="extranjero"/>
+            <comunidad-unam v-if="comunidad"/>
+            <extern-student v-if="student"/>
+        </main>
+        
     </div>
-    <foreign v-if="extranjero"/>
-    <comunidad-unam v-if="comunidad"/>
-    <extern-student v-if="student"/>
+    
    
 </template>
 

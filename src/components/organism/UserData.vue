@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
+    <div class="grid-column">
         <text-input class="align" :warn='$store.state.validate.first_name' text="Nombre" :placeholder="'CESAR'" v-model="name"/>
         <text-input class="align" :warn='$store.state.validate.last_name' text="Apellidos" :placeholder="'ARANZUA LOPEZ'" v-model="last"/>
         <number-input class="align" :warn='$store.state.validate.contact_phone' :max="'10'" text="Número de teléfono" :placeholder="'5543256789'" v-model="phone"/>

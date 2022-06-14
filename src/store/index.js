@@ -19,7 +19,10 @@ export default createStore({
       email: '',
       password: '',
       rfc: '',
-      type: '',
+      type: {
+        general: '',
+        academic: ''
+      },
     },
     ocupation: true,
     foreign: {
@@ -44,7 +47,15 @@ export default createStore({
       password: true,
       rfc: true,
       type: true,
-      nationality: true
+      nationality: true,
+      url: true,
+      image: true
+    },
+    data_course: {
+        tittle:"C# Avanzado",
+        description:"Se aprenderan conceptos como try cath",
+        price:"1500",
+        img:"c.png"
     }
   },
   mutations: {
@@ -56,7 +67,8 @@ export default createStore({
     updateEmail (state, val) { state.user.email = val },
     updatePass (state, val) { state.user.password = val },
     updateRFC (state, val) { state.user.rfc = val },
-    updateType (state, val) { state.user.type = val },
+    updateTypeG (state, val) { state.user.type.general = val },
+    updateTypeA (state, val) { state.user.type.academic = val },
     updateFNationality (state, val) { state.foreign.nationality_iformation.country = val },
     updateSAcademic (state, val) { state.student.academic_information.website = val },
     updateSImage (state, val) { state.student.academic_information.image = val },
@@ -69,11 +81,14 @@ export default createStore({
     statusPass (state, val) { state.validate.password = val },
     statusRFC (state, val) { state.validate.rfc = val },
     statusNationality (state, val) { state.validate.nationality = val },
+    statusURL (state, val) { state.validate.url = val },
+    statusImage (state, val) { state.validate.image = val },
     ocupacionType (state, val) { state.ocupation = val},
+    dataCourse (state, val) { state.data_course = val},
   },
   actions: {
   },
   modules: {
   },
-  
+  plugins: [vuexLocal.plugin]
 })
